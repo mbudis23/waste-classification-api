@@ -1,23 +1,20 @@
-# Gunakan base image Python 3.10 yang ringan
 FROM python:3.10-slim
 
-# Install dependensi sistem untuk image processing dan torch
-RUN apt-get update && apt-get install -y \
-    libglib2.0-0 libsm6 libxext6 libxrender-dev \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# Buat direktori kerja di dalam container
+# Set working directory
 WORKDIR /app
 
-# Salin semua file proyek (kecuali yang di .dockerignore)
+# Install system dependencies untuk OpenCV
+RUN apt-get update && apt-get install -y libgl1 libglib2.0-0
+
+# Copy requirements dan install Python dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy semua file project
 COPY . .
 
-# Upgrade pip dan install dependensi dari requirements.txt
-RUN pip install --no-cache-dir --upgrade pip \
-    && pip install --no-cache-dir -r requirements.txt
+# Expose port
+EXPOSE 8001
 
-# Expose port untuk FastAPI
-EXPOSE 8000
-
-# Perintah untuk menjalankan API FastAPI
-CMD ["uvicorn", "main:app" , "--reload", "--port", "8000"]
+# Jalankan server
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8001"]
