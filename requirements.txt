@@ -1,4 +1,8 @@
 fastapi
 uvicorn[standard]
-ultralytics
+# ultralytics
 python-multipart
+torch>=1.13.0
+torchvision
+efficientnet_pytorch
+pillow
