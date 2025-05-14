@@ -7,7 +7,7 @@ import uuid, os
 
 from models.efficientnet_model import model_eff, class_names
 from config import UPLOAD_DIR
-from utils.class_mapper import map_to_six_classes
+from utils.class_mapper import map_to_three_classes
 from utils.file_ops import save_upload_file
 
 router = APIRouter()
@@ -32,7 +32,7 @@ async def classify_waste(file: UploadFile = File(...)):
         _, predicted = torch.max(outputs, 1)
         predicted_label = class_names[predicted.item()]
         confidence = torch.softmax(outputs, dim=1)[0][predicted.item()].item()
-        predicted_label = map_to_six_classes(predicted_label)
+        predicted_label = map_to_three_classes(predicted_label)
 
     os.remove(temp_file_path)
 
