@@ -8,7 +8,7 @@ Dibuat oleh kelompok senior project B3 17:
 
 ---
 
-## API ini menyediakan layanan deteksi dan klasifikasi jenis sampah menggunakan berbagai model machine learning dan deep learning, termasuk YOLO, EfficientNet, dan klasifikasi warna tempat sampah. Sistem ini ditujukan untuk aplikasi pengelolaan sampah yang cerdas dan otomatis.
+API ini menyediakan layanan deteksi dan klasifikasi jenis sampah menggunakan berbagai model machine learning dan deep learning, termasuk YOLO, EfficientNet, dan klasifikasi warna tempat sampah. Sistem ini ditujukan untuk aplikasi pengelolaan sampah yang cerdas dan otomatis.
 
 ## Base URL
 
