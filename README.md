@@ -28,7 +28,9 @@ Response:
 ## Endpoints
 
 1. Waste Classification with EfficientNet
+
    `POST /waste-classification/efficientnet`
+
    Mengklasifikasikan jenis sampah menjadi organik, anorganik, atau b3 menggunakan model EfficientNet.
    Request: file gambar
    Response:
@@ -41,7 +43,9 @@ Response:
 ```
 
 2. Trash Bin Detection
+
    `POST /detect-bin`
+
    Mendeteksi lokasi tempat sampah di gambar dan mengklasifikasikan jenisnya berdasarkan warna dominan.
    Request: file gambar
    Response:
