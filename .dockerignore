@@ -4,4 +4,5 @@ __pycache__
 *.pyo
 *.pyd
 uploads
-training
+training/
+cropped_objects/
